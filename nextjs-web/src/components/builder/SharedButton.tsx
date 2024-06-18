@@ -1,7 +1,7 @@
 import React from "react";
-import { Button } from "react-native";
-import { Link } from "expo-router";
-import type { RegisteredComponent } from "@builder.io/sdk-react-native";
+import type { RegisteredComponent } from "@builder.io/sdk-react";
+import Link from "next/link";
+
 import {
   SharedButtonProps,
   SharedButtonInput,
@@ -12,16 +12,22 @@ const SharedButton: React.FC<SharedButtonProps & { attributes: object }> = ({
   text,
   attributes,
 }) => {
-  // TODO: better validation on the url string to address TS errors
+  const className = `bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${attributes.className}`;
+
   if (url) {
+    console.log(`url: "${url}", ${typeof url}`);
     return (
-      <Link {...attributes} href={url as any}>
+      <Link {...attributes} href={url} className={className}>
         {text}
       </Link>
     );
   }
 
-  return <Button {...attributes} title={text}></Button>;
+  return (
+    <button {...attributes} className={className}>
+      {text}
+    </button>
+  );
 };
 
 // TODO: Make sure this definition is shared between Web & Mobile

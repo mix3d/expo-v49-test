@@ -1,4 +1,4 @@
-import type { ComponentInfo } from "@builder.io/sdk-react-native";
+import type { ComponentInfo } from "@builder.io/sdk-react";
 
 // TODO: Actually make this a shared file
 export interface SharedButtonProps {

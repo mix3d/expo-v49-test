@@ -1,11 +1,12 @@
+"use client"
 import {
     Content,
     fetchOneEntry,
     type BuilderContent,
-  } from '@builder.io/sdk-react-native';
-  import { usePathname } from 'expo-router';
-  import { useEffect, useState } from 'react';
-  import { ScrollView, Text, View } from 'react-native';
+  } from '@builder.io/sdk-react';
+import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+
 import { SharedButtonDefinition } from './SharedButton';
   
   const BUILDER_API_KEY = '386ea53f10e94443946f4d024a731d71';
@@ -34,23 +35,21 @@ import { SharedButtonDefinition } from './SharedButton';
     }, []);
   
     return (
-      <ScrollView style={{ padding: 20 }}>
-        <Text>
-          Hello from your React Native codebase. Below is your Builder content:
-        </Text>
+      <div>
+        <p>
+          Hello from your Next.js codebase. Below is your Builder content:
+        </p>
         {content ? (
           <Content
             apiKey={BUILDER_API_KEY}
             model={MODEL_NAME}
             content={content}
-            blocksWrapper={View}
-            contentWrapper={View}
             customComponents={customComponents}
           />
         ) : (
-          <Text>Not Found.</Text>
+          <p>Not Found.</p>
         )}
-      </ScrollView>
+      </div>
     );
   };
   
