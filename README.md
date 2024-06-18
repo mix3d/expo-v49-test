@@ -17,7 +17,7 @@ Before getting started, make sure you have the following installed:
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/mix3d/multi-framework-builder.git
+    git clone https://github.com/mix3d/multi-framework-builderio.git
     ```
 
 2. Install dependencies for the React Native app:
